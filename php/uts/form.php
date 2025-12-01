@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,53 +9,27 @@
     <title>Document</title>
 </head>
 <body>
-    
-
-    <!-- <form action="proses.php" method="post">
-        <div>
-            <label for="">Kode : </label> <br>
-            <input type="text" name="kode">
-        </div>
-        <div>
-            <label for="">Nama Barang : </label> <br>
-            <input type="text" name="nama">
-        </div>
-        <div>
-            <label for="">Tanggal Masuk : </label> <br>
-            <input type="date" name="date">
-        </div>
-        <div>
-            <label for="">Stok : </label> <br>
-            <input type="number" name="stok">
-        </div>
-        <div>
-            <label for="">Harga : </label> <br>
-            <input type="number" name="harga">
-        </div>
-        <div>
-            <label for="">Kategori : </label> <br>
-            <select name="kategori">
-                <option value="sandang">Sandang</option>
-                <option value="pangan">Pangan</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="">Deskrips : </label> <br>
-            <textarea name="desc"></textarea>
-        </div>
-
-        <div>
-            <button type="submit">Proses</button>
-        </div>
-    </form> -->
-
-    <form action="proses.php" method="post">
+    <form action="proses2.php" method="post">
         <table>
             <tr>
                 <td>Kode</td>
                 <td>:</td>
-                <td><input name="kode" type="text"></td>
+                <td>
+                    <input name="kode" type="text" style="border-color:
+                        <?php 
+                            if(isset($_SESSION['err_kode'])){
+                                echo "red";
+                            }
+                        ?>
+                    "> <br>
+                    <span style="color: red;">
+                        <?php 
+                            if(isset($_SESSION['err_kode'])){
+                                echo $_SESSION['err_kode'];
+                            }
+                        ?>
+                    </span>
+                </td>
             </tr>
             <tr>
                 <td>Nama Barang</td>
@@ -105,3 +82,8 @@
 
 </body>
 </html>
+
+<?php 
+session_destroy();
+
+?>
