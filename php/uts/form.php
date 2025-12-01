@@ -15,13 +15,7 @@ session_start();
                 <td>Kode</td>
                 <td>:</td>
                 <td>
-                    <input name="kode" type="text" style="border-color:
-                        <?php 
-                            if(isset($_SESSION['err_kode'])){
-                                echo "red";
-                            }
-                        ?>
-                    "> <br>
+                    <input name="kode" type="text"> <br>
                     <span style="color: red;">
                         <?php 
                             if(isset($_SESSION['err_kode'])){
