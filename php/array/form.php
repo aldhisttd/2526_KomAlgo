@@ -9,7 +9,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <form action="proses2.php" method="post">
+    <form action="proses.php" method="post">
         <table>
             <tr>
                 <td>Kode</td>
@@ -121,6 +121,6 @@ session_start();
 </html>
 
 <?php 
-session_destroy();
+// session_destroy();
 
 ?>

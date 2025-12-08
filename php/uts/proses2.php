@@ -12,10 +12,32 @@ $desc = $_POST['desc'];
 session_start();
 if($kode==''){
     $_SESSION['err_kode'] = "Kode tidak boleh kosong";
-    header('location:form.php');
 }
 
-// insert ke DB
+if($nama==''){
+    $_SESSION['err_nama'] = "Nama tidak boleh kosong";
+}
 
+if($tgl==''){
+    $_SESSION['err_tgl'] = "Tanggal tidak boleh kosong";
+}
 
-// tampilkan datanya
+if($stok==''){
+    $_SESSION['err_stok'] = "Stok tidak boleh kosong";
+}
+
+if($hrg==''){
+    $_SESSION['err_hrg'] = "Harga tidak boleh kosong";
+}
+
+if($desc==''){
+    $_SESSION['err_desc'] = "Deskripsi tidak boleh kosong";
+}
+
+if(
+    $kode=='' || $nama=='' || $tgl=='' ||
+    $stok=='' || $hrg=='' || $desc==''
+){
+    header('location:form.php');
+    exit();  
+}
