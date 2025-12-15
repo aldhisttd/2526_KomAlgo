@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    
+  
+    <h1>Menu</h1>
+    <ul>
+        <li><a href="form.php">Form</a></li>
+        <li><a href="data.php">Data</a></li>
+    </ul>
+
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-5 p-5 border border-primary bg-light">
+                <form action="proses/form_proses.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group mb-2">
+                        <label for="">NIM</label>
+                        <input type="text" name="nim" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="">Nama</label>
+                        <input type="text" name="nama" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="">Gender</label>
+                        <input type="radio" name="gender" value="1"> Laki-laki
+                        <input type="radio" name="gender" value="0"> Perempuan
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="">Jurusan</label>
+                        <select name="jurusan" class="form-control">
+                            <option value="Teknik Informatika">Teknik Informatika</option>
+                            <option value="Teknik Sipil">Teknik Sipil</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="">Photo</label>
+                        <input type="file" name="photo" class="form-control">
+                    </div>
+
+                    <hr>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
