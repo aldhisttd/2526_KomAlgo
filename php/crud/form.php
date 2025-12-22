@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,15 +25,21 @@
                 <form action="proses/form_proses.php" method="post" enctype="multipart/form-data">
                     <div class="form-group mb-2">
                         <label for="">NIM</label>
-                        <input type="text" name="nim" class="form-control">
+                        <input type="text" name="nim" class="form-control <?= (isset($_SESSION['err']['nim'])?'is-invalid':null) ?>">
+                        <div class="invalid-feedback">
+                            <?= $_SESSION['err']['nim']  ?>
+                        </div>
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Nama</label>
-                        <input type="text" name="nama" class="form-control">
+                        <input type="text" name="nama" class="form-control <?= (isset($_SESSION['err']['nama'])?'is-invalid':null) ?>">
+                        <div class="invalid-feedback">
+                            <?= $_SESSION['err']['nama']  ?>
+                        </div>
                     </div>
                     <div class="form-group mb-2">
-                        <label for="">Gender</label>
-                        <input type="radio" name="gender" value="1"> Laki-laki
+                        <label for="">Gender</label><br>
+                        <input type="radio" name="gender" checked value="1"> Laki-laki
                         <input type="radio" name="gender" value="0"> Perempuan
                     </div>
                     <div class="form-group mb-2">
@@ -42,7 +51,10 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Photo</label>
-                        <input type="file" name="photo" class="form-control">
+                        <input type="file" name="photo" class="form-control <?= (isset($_SESSION['err']['photo'])?'is-invalid':null) ?>">
+                        <div class="invalid-feedback">
+                            <?= $_SESSION['err']['photo']  ?>
+                        </div>
                     </div>
 
                     <hr>
@@ -58,3 +70,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
+<?php 
+unset($_SESSION['err']);
+?>
