@@ -21,7 +21,7 @@ session_start();
 
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-7 p-5 border bg-light">
+            <div class="col-8 p-5 border bg-light">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -61,6 +61,7 @@ session_start();
                                     <td>
                                         <form action="proses/delete_proses.php" method="post">
                                             <button onclick="return confirm('Apakah anda yakin menghapus data ini?')" name="id" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                            <a href="edit.php?id=<?= $value['id'] ?>" class="btn btn-success btn-sm">Edit</a>
                                         </form>
                                     </td>
                                 </tr>

@@ -22,32 +22,43 @@ session_start();
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-5 p-5 border border-primary bg-light">
-                <h3>Form Insert</h3>
+                <h3>Form Edit</h3>
+                <?php 
+                $koneksi = mysqli_connect('localhost','root','','komalgo');
+                $id = $_GET['id'];
+                $query = "SELECT * FROM mahasiswa WHERE id=$id";
+                $obj = mysqli_query($koneksi, $query);
+                $dtEdit = mysqli_fetch_array($obj);
+                $nim = $dtEdit['nim'];
+                $nama = $dtEdit['nama'];
+                $gender = $dtEdit['gender'];
+                $jurusan = $dtEdit['jurusan'];
+                ?>
                 <form action="proses/form_proses.php" method="post" enctype="multipart/form-data">
                     <div class="form-group mb-2">
                         <label for="">NIM</label>
-                        <input type="text" name="nim" class="form-control <?= (isset($_SESSION['err']['nim'])?'is-invalid':null) ?>">
+                        <input type="text" name="nim" value="<?= $nim ?>" class="form-control <?= (isset($_SESSION['err']['nim'])?'is-invalid':null) ?>">
                         <div class="invalid-feedback">
                             <?= $_SESSION['err']['nim']  ?>
                         </div>
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Nama</label>
-                        <input type="text" name="nama" class="form-control <?= (isset($_SESSION['err']['nama'])?'is-invalid':null) ?>">
+                        <input value="<?= $nama ?>" type="text" name="nama" class="form-control <?= (isset($_SESSION['err']['nama'])?'is-invalid':null) ?>">
                         <div class="invalid-feedback">
                             <?= $_SESSION['err']['nama']  ?>
                         </div>
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Gender</label><br>
-                        <input type="radio" name="gender" checked value="1"> Laki-laki
-                        <input type="radio" name="gender" value="0"> Perempuan
+                        <input type="radio" name="gender" <?= ($gender==1)?'checked':null ?> value="1"> Laki-laki
+                        <input type="radio" name="gender" <?= ($gender==0)?'checked':null ?> value="0"> Perempuan
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Jurusan</label>
                         <select name="jurusan" class="form-control">
-                            <option value="Teknik Informatika">Teknik Informatika</option>
-                            <option value="Teknik Sipil">Teknik Sipil</option>
+                            <option value="Teknik Informatika" <?= ($jurusan=="Teknik Informatika")?'selected':null ?>>Teknik Informatika</option>
+                            <option value="Teknik Sipil" <?= ($jurusan=="Teknik Sipil")?'selected':null ?>>Teknik Sipil</option>
                         </select>
                     </div>
                     <div class="form-group mb-2">
