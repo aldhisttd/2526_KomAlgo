@@ -22,7 +22,7 @@ session_start();
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-7 p-5 border bg-light">
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -31,6 +31,7 @@ session_start();
                             <th>Gender</th>
                             <th>Jurusan</th>
                             <th>Photo</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +58,11 @@ session_start();
                                     </td>
                                     <td><?= $value['jurusan'] ?></td>
                                     <td><img src="photo/<?= $value['photo'] ?>" width="50" alt=""></td>
+                                    <td>
+                                        <form action="proses/delete_proses.php" method="post">
+                                            <button onclick="return confirm('Apakah anda yakin menghapus data ini?')" name="id" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                         <?php
                             }
