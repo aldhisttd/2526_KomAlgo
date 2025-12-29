@@ -33,8 +33,11 @@ session_start();
                 $nama = $dtEdit['nama'];
                 $gender = $dtEdit['gender'];
                 $jurusan = $dtEdit['jurusan'];
+                $photolama = $dtEdit['photo'];
                 ?>
-                <form action="proses/form_proses.php" method="post" enctype="multipart/form-data">
+                <form action="proses/edit_proses.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <input type="hidden" name="photolama" value="<?= $photolama ?>">
                     <div class="form-group mb-2">
                         <label for="">NIM</label>
                         <input type="text" name="nim" value="<?= $nim ?>" class="form-control <?= (isset($_SESSION['err']['nim'])?'is-invalid':null) ?>">
@@ -62,7 +65,7 @@ session_start();
                         </select>
                     </div>
                     <div class="form-group mb-2">
-                        <label for="">Photo</label>
+                        <label for="">Photo <small>(biarkan kosong kalau photo tidak di edit)</small></label> 
                         <input type="file" name="photo" class="form-control <?= (isset($_SESSION['err']['photo'])?'is-invalid':null) ?>">
                         <div class="invalid-feedback">
                             <?= $_SESSION['err']['photo']  ?>

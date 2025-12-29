@@ -22,6 +22,13 @@ session_start();
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-8 p-5 border bg-light">
+
+
+                <div class="<?= (isset($_SESSION['succ']))?'alert':null ?> alert-success" role="alert">
+                    <?= (isset($_SESSION['succ']))?$_SESSION['succ']:null ?>
+                </div>
+
+
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -80,4 +87,5 @@ session_start();
 </html>
 <?php 
 unset($_SESSION['err']);
+unset($_SESSION['succ']);
 ?>
