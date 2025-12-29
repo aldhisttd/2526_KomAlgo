@@ -67,6 +67,7 @@ session_start();
                                     <td><img src="photo/<?= $value['photo'] ?>" width="50" alt=""></td>
                                     <td>
                                         <form action="proses/delete_proses.php" method="post">
+                                            <input type="hidden" name="photo" value="<?= $value['photo'] ?>">
                                             <button onclick="return confirm('Apakah anda yakin menghapus data ini?')" name="id" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                             <a href="edit.php?id=<?= $value['id'] ?>" class="btn btn-success btn-sm">Edit</a>
                                         </form>
